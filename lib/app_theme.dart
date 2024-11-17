@@ -19,6 +19,8 @@ class AppTheme {
               fontSize: 22, fontWeight: FontWeight.w400, color: white)),
       primaryColor: primaryLight,
       textTheme: TextTheme(
+          titleMedium: TextStyle(
+              fontSize: 14, fontWeight: FontWeight.w400, color: black),
           titleLarge: TextStyle(
               fontSize: 22, fontWeight: FontWeight.bold, color: white)));
 }

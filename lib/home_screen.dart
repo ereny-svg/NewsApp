@@ -24,7 +24,12 @@ class _HomeScreenState extends State<HomeScreen> {
           image:
               DecorationImage(image: AssetImage('assets/images/pattern.png'))),
       child: Scaffold(
-        appBar: AppBar(title: Text('News App')),
+        appBar: AppBar(
+            title: Text(selectedCategory != null
+                ? selectedCategory!.name
+                : selectedItem == DrawerItem.categories
+                    ? 'News App'
+                    : 'Settings')),
         drawer: HomeDrawer(
           onItemSelected: onDrawerItemChange,
         ),

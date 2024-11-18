@@ -4,15 +4,15 @@ import 'package:newsapp/categories/category_item.dart';
 import 'package:newsapp/models/category_model.dart';
 
 class CategoriesGrid extends StatelessWidget {
-  void Function(CategoryModel)onCategorySelected;
- CategoriesGrid({required this.onCategorySelected});
+ final void Function(CategoryModel)onCategorySelected;
+const CategoriesGrid({super.key, required this.onCategorySelected});
 
   @override
   Widget build(BuildContext context) {
     final categories = List.generate(
         6,
         (index) => CategoryModel(
-            id: '${index}',
+            id: '$index',
             name: 'Sports',
             imagesName: 'ball',
             color: AppTheme.red));

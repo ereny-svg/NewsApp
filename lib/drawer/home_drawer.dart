@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:newsapp/app_theme.dart';
 
 class HomeDrawer extends StatelessWidget {
-  HomeDrawer({required this.onItemSelected});
-  void Function(DrawerItem) onItemSelected;
+ const HomeDrawer({super.key, required this.onItemSelected});
+ final void Function(DrawerItem) onItemSelected;
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -27,7 +27,7 @@ class HomeDrawer extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsetsDirectional.only(top: 12, start: 12),
+              padding: const EdgeInsetsDirectional.only(top: 12, start: 12),
               color: AppTheme.white,
               child: Column(
                 children: [
@@ -35,8 +35,8 @@ class HomeDrawer extends StatelessWidget {
                     onTap: () => onItemSelected(DrawerItem.categories),
                     child: Row(
                       children: [
-                        Icon(Icons.menu),
-                        SizedBox(
+                        const Icon(Icons.menu),
+                        const SizedBox(
                           width: 16,
                         ),
                         Text(
@@ -49,15 +49,15 @@ class HomeDrawer extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 12,
                   ),
                   GestureDetector(
                     onTap: () => onItemSelected(DrawerItem.settings),
                     child: Row(
                       children: [
-                        Icon(Icons.settings),
-                        SizedBox(
+                        const Icon(Icons.settings),
+                        const SizedBox(
                           width: 16,
                         ),
                         Text(

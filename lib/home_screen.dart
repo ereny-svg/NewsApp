@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ? CategoriesGrid(
                     onCategorySelected: onCategorySelected,
                   )
-                : SettingTap(),
+                : const SettingTap(),
       ),
     );
   }

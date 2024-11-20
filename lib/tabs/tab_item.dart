@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:newsapp/app_theme.dart';
 
 class TabItems extends StatelessWidget {
-  String sourceName;
-  bool isSelected;
-  TabItems({required this.sourceName, required this.isSelected});
+ final  String sourceName;
+ final bool isSelected;
+ const TabItems({super.key, required this.sourceName, required this.isSelected});
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 8),
+      margin: const EdgeInsets.symmetric(vertical: 8),
       alignment: Alignment.center,
       width: 95,
       height: 34,

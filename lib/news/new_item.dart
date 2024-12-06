@@ -1,12 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapp/app_theme.dart';
+import 'package:newsapp/models/news_response/News.dart';
 import 'package:newsapp/widgets/loading_indicator.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class NewItem extends StatelessWidget {
-  const NewItem({super.key});
-
+  const NewItem({required this.news, super.key});
+  final News news;
   @override
   Widget build(BuildContext context) {
     final fifteenAgo = DateTime.now().subtract(const Duration(minutes: 15));
@@ -19,7 +20,7 @@ class NewItem extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(5),
             child: CachedNetworkImage(
-              imageUrl:
+              imageUrl: news.urlToImage ??
                   'https://sesupport.edumall.jp/hc/article_attachments/900009570963/noImage.jpg',
               height: height * 0.25,
               width: double.infinity,
@@ -33,7 +34,7 @@ class NewItem extends StatelessWidget {
             height: 10,
           ),
           Text(
-            'BBC news',
+            news.source?.name ?? '',
             style: Theme.of(context)
                 .textTheme
                 .titleSmall!
@@ -43,14 +44,14 @@ class NewItem extends StatelessWidget {
             height: 5,
           ),
           Text(
-            "Why are football's biggest clubs starting a new tournament?",
+            news.title ?? "",
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
                 color: AppTheme.darkgray, fontWeight: FontWeight.w500),
           ),
           Align(
             alignment: AlignmentDirectional.centerEnd,
             child: Text(
-              timeago.format(fifteenAgo),
+              timeago.format(news.publishedAt!),
               style: Theme.of(context)
                   .textTheme
                   .titleMedium!

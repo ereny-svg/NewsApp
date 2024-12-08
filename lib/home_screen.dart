@@ -3,6 +3,8 @@ import 'package:newsapp/categories/categories_grid.dart';
 import 'package:newsapp/categories/category_details.dart';
 import 'package:newsapp/drawer/home_drawer.dart';
 import 'package:newsapp/models/category_model.dart';
+
+import 'package:newsapp/search/search_delegate.dart';
 import 'package:newsapp/setting/setting_tap.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -25,11 +27,19 @@ class _HomeScreenState extends State<HomeScreen> {
               DecorationImage(image: AssetImage('assets/images/pattern.png'))),
       child: Scaffold(
         appBar: AppBar(
-            title: Text(selectedCategory != null
-                ? selectedCategory!.name
-                : selectedItem == DrawerItem.categories
-                    ? 'News App'
-                    : 'Settings')),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  showSearch(context: context, delegate: NewsSearch());
+                },
+                icon: Icon(Icons.search))
+          ],
+          title: Text(selectedCategory != null
+              ? selectedCategory!.name
+              : selectedItem == DrawerItem.categories
+                  ? 'News App'
+                  : 'Settings'),
+        ),
         drawer: HomeDrawer(
           onItemSelected: onDrawerItemChange,
         ),

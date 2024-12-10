@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newsapp/app_theme.dart';
 import 'package:newsapp/categories/category_item.dart';
 import 'package:newsapp/models/category_model.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CategoriesGrid extends StatelessWidget {
   final void Function(CategoryModel) onCategorySelected;
@@ -48,7 +49,7 @@ class CategoriesGrid extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 24),
-            child: Text('Pick your category of interest',
+            child: Text(AppLocalizations.of(context)!.pick,
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
                       color: AppTheme.navy,
                     )),

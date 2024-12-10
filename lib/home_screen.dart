@@ -3,7 +3,7 @@ import 'package:newsapp/categories/categories_grid.dart';
 import 'package:newsapp/categories/category_details.dart';
 import 'package:newsapp/drawer/home_drawer.dart';
 import 'package:newsapp/models/category_model.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:newsapp/search/search_delegate.dart';
 import 'package:newsapp/setting/setting_tap.dart';
 
@@ -37,8 +37,8 @@ class _HomeScreenState extends State<HomeScreen> {
           title: Text(selectedCategory != null
               ? selectedCategory!.name
               : selectedItem == DrawerItem.categories
-                  ? 'News App'
-                  : 'Settings'),
+                  ? AppLocalizations.of(context)!.newsApp
+                  : AppLocalizations.of(context)!.settings),
         ),
         drawer: HomeDrawer(
           onItemSelected: onDrawerItemChange,

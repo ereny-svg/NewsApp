@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:newsapp/app_theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeDrawer extends StatelessWidget {
- const HomeDrawer({super.key, required this.onItemSelected});
- final void Function(DrawerItem) onItemSelected;
+  const HomeDrawer({super.key, required this.onItemSelected});
+  final void Function(DrawerItem) onItemSelected;
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -18,7 +19,7 @@ class HomeDrawer extends StatelessWidget {
             width: double.infinity,
             height: height * 0.2,
             child: Text(
-              'News App!',
+              AppLocalizations.of(context)!.newsApp,
               style: Theme.of(context)
                   .textTheme
                   .titleLarge!
@@ -40,7 +41,7 @@ class HomeDrawer extends StatelessWidget {
                           width: 16,
                         ),
                         Text(
-                          'Categories',
+                          AppLocalizations.of(context)!.categories,
                           style: Theme.of(context)
                               .textTheme
                               .titleLarge!
@@ -61,7 +62,7 @@ class HomeDrawer extends StatelessWidget {
                           width: 16,
                         ),
                         Text(
-                          'Settings',
+                          AppLocalizations.of(context)!.settings,
                           style: Theme.of(context)
                               .textTheme
                               .titleLarge!

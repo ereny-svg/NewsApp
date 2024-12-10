@@ -37,6 +37,7 @@ class NewsSearch extends SearchDelegate {
   @override
   ThemeData appBarTheme(context) {
     return Theme.of(context).copyWith(
+        textTheme: TextTheme(titleSmall: TextStyle(color: Colors.black)),
         primaryColor: AppTheme.primaryLight,
         inputDecorationTheme: const InputDecorationTheme(
             labelStyle: TextStyle(

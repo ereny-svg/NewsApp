@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:newsapp/api/api_service.dart';
 import 'package:newsapp/app_theme.dart';
+import 'package:newsapp/news/new_item.dart';
+import 'package:newsapp/news/news_details.dart';
+import 'package:newsapp/widgets/error_indicator.dart';
+import 'package:newsapp/widgets/loading_indicator.dart';
 
 class NewsSearch extends SearchDelegate {
   @override
@@ -24,14 +29,34 @@ class NewsSearch extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    return const Text(
-      'Search Article',
+    if (query.isEmpty) {
+      return Center(child: Text('Search for news '));
+    }
+    return FutureBuilder(
+      future: ApiService.getAllNews(query),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return LoadingIndicator();
+        } else if (snapshot.hasError || snapshot.data?.status != 'ok') {
+          return ErrorIndicator();
+        } else {
+          final news = snapshot.data?.articles ?? [];
+          return ListView.builder(
+            itemBuilder: (context, index) => GestureDetector(
+                onTap: () => Navigator.of(context).pushNamed(
+                    NewsDetails.routename,
+                    arguments: NewItem(news[index])),
+                child: NewItem(news[index])),
+            itemCount: news.length,
+          );
+        }
+      },
     );
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return Center(child: Text('data'));
+    return Center(child: Text('News'));
   }
 
   @override

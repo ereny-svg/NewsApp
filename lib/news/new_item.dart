@@ -6,8 +6,8 @@ import 'package:newsapp/widgets/loading_indicator.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class NewItem extends StatelessWidget {
- NewItem(this.news,{ super.key});
-  final  news;
+  NewItem(this.news, {super.key});
+  final news;
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -50,7 +50,7 @@ class NewItem extends StatelessWidget {
           Align(
             alignment: AlignmentDirectional.centerEnd,
             child: Text(
-              timeago.format(news.publishedAt!),
+              timeago.format(DateTime.parse(news.publishedAt!)),
               style: Theme.of(context)
                   .textTheme
                   .titleMedium!

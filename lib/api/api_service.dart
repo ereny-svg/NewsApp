@@ -17,11 +17,13 @@ final uri= Uri.https(ApiConstants.baseURL,ApiConstants.sourseEndpoint,
     final json= jsonDecode(response.body);
   return  Sourcesresponse.fromJson(json);
   }
-   static Future<NewsResponse> getNews(String sourceId)async{
+   static Future<NewsResponse> getNews(String sourceId,int page,int pageSize )async{
 final uri= Uri.https(ApiConstants.baseURL,ApiConstants.newsEndpoint,
   {
      'apiKey':ApiConstants.apiKey,
-     'sources':sourceId
+     'sources':sourceId,
+     'page':page,
+     'pageSize':pageSize
   }
   );
     final response=await http.get(uri);

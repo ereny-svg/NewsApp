@@ -75,7 +75,8 @@ class _NewsDetailsState extends State<NewsDetails> {
                     Align(
                       alignment: AlignmentDirectional.centerEnd,
                       child: Text(
-                        timeago.format(DateTime.parse(news.news.publishedAt!)),
+                        timeago.format(
+                            DateTime.parse(news.news.publishedAt.toString())),
                         style: Theme.of(context)
                             .textTheme
                             .titleMedium!

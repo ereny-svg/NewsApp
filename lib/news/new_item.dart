@@ -50,7 +50,7 @@ class NewItem extends StatelessWidget {
           Align(
             alignment: AlignmentDirectional.centerEnd,
             child: Text(
-              timeago.format(DateTime.parse(news.publishedAt!)),
+              timeago.format(DateTime.parse(news.publishedAt.toString())),
               style: Theme.of(context)
                   .textTheme
                   .titleMedium!

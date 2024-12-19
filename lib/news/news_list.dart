@@ -22,8 +22,8 @@ class NewsList extends StatelessWidget {
           return ListView.builder(
             itemBuilder: (context, index) => GestureDetector(
                 onTap: () =>
-                    Navigator.of(context).pushNamed(NewsDetails.routename,arguments: NewItem(news: news[index]) ),
-                child: NewItem(news: news[index])),
+                    Navigator.of(context).pushNamed(NewsDetails.routename,arguments: NewItem( news[index]) ),
+                child: NewItem( news[index])),
             itemCount: news.length,
           );
         }
